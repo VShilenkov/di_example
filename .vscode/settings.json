@@ -1,4 +1,6 @@
 {
+    "clang-format.executable": "/usr/bin/clang-format-13",
+
     "cmake.generator": "Unix Makefiles",
     "cmake.configureOnEdit": false
 }
