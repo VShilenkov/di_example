@@ -35,6 +35,11 @@ add_feature_info([GLOBAL].clang-tidy WITH_CLANG_TIDY
     "Build with clang-tidy globaly enabled"
 )
 
+option(WITH_LINK_WHAT_YOU_USE "Build with link-what-you-use globaly enabled" OFF)
+add_feature_info([GLOBAL].link-what-you-use WITH_LINK_WHAT_YOU_USE
+    "Build with link-what-you-use globaly enabled"
+)
+
 if(WITH_INCLUDE_WHAT_YOU_USE)
     find_program(iwyu_executable include-what-you-use REQUIRED)
     set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE "${iwyu_executable}")
@@ -53,6 +58,10 @@ if(WITH_CLANG_TIDY)
     )
     set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_EXECUTABLE}" -p "${CMAKE_BINARY_DIR}")
 endif() 
+
+if(WITH_LINK_WHAT_YOU_USE)
+    set(CMAKE_LINK_WHAT_YOU_USE True)
+endif()
 
 # Dependency Resolution -------------------------------------------------------
 # in normal case it should be find_package(platform_implementation REQUIRED)
