@@ -3,16 +3,22 @@
 #include <iostream>
 
 #include "di_example_config.hpp"
+#include <string>
 
-int main() {
+int main(int argc, char* argv[]) {
+
+  if(argc > 1 && std::string(argv[1]) == "--version")
+  {
 
   #if defined __clang__
     std::cout << "Build with clang" << std::endl;
   #elif defined __GNUC__
     std::cout << "Build with GCC" << std::endl;
   #endif 
+    std::cout << VERSION_STRING << ". Commit: " << VERSION_GIT_HASH << ((VERSION_GIT_DIRTY) ? "*" : "") << std::endl;
+    return 0;
+  }
 
-  std::cout << VERSION_STRING << ". Commit: " << VERSION_GIT_HASH << ((VERSION_GIT_DIRTY) ? "*" : "") << std::endl;
 
   IStorageService *storage = new CPlatformStorageDelegate();
 
