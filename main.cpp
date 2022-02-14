@@ -16,7 +16,7 @@ int main() {
   // DEPENDENCY INJECTED HERE!
   CPlatformConsumer *consumer = new CPlatformConsumer(storage);
 
-  for (int i = 0; i < 5; ++i) {
+  for (int i = 0l; i < 5; ++i) {
     consumer->fooooooo();
     std::cout << consumer->getResult() << std::endl;
   }

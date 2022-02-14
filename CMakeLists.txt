@@ -40,6 +40,20 @@ if(WITH_INCLUDE_WHAT_YOU_USE)
     set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE "${iwyu_executable}")
 endif()
 
+if(WITH_CLANG_TIDY)
+    find_program(CLANG_TIDY_EXECUTABLE 
+        NAMES
+            clang-tidy
+            clang-tidy-15
+            clang-tidy-14
+            clang-tidy-13
+            clang-tidy-12
+            clang-tidy-11
+        REQUIRED
+    )
+    set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_EXECUTABLE}" -p "${CMAKE_BINARY_DIR}")
+endif() 
+
 # Dependency Resolution -------------------------------------------------------
 # in normal case it should be find_package(platform_implementation REQUIRED)
 # because this is some outer component which we consumes
