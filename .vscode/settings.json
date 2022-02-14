@@ -3,5 +3,16 @@
 
     "cmake.cmakePath": "/usr/bin/cmake",
     "cmake.generator": "Unix Makefiles",
-    "cmake.configureOnEdit": false
+    "cmake.configureOnEdit": false,
+    "cmake.buildDirectory": "${workspaceFolder}/build_${buildKit}/${buildType}",
+
+    "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/compile_commands.json",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+
+    "cmake.configureSettings": 
+    {
+        "WITH_UNIT_TEST_di-example" : "true",
+        "CMAKE_VERBOSE_MAKEFILE" : "false",
+    }
 }
