@@ -15,5 +15,6 @@
         // "WITH_UNIT_TEST_di-example" : "true",
         "CMAKE_VERBOSE_MAKEFILE" : "false",
         // "CMAKE_INSTALL_PREFIX" : "/home/edge/Hearth/install_root", 
+        "WITH_INCLUDE_WHAT_YOU_USE" : "true"
     }
 }

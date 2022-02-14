@@ -20,9 +20,25 @@ add_executable(${PROJECT_NAME})
 add_subdirectory(cmake) # support local includes
 
 include(ProjectOptions)
+include(FeatureSummary)
 
 # Options ---------------------------------------------------------------------
 project_options(${PROJECT_NAME})
+
+option(WITH_INCLUDE_WHAT_YOU_USE "Build with include-what-you-use globaly enabled" OFF)
+add_feature_info([GLOBAL].include-what-you-use WITH_INCLUDE_WHAT_YOU_USE
+    "Build with include-what-you-use globaly enabled"
+)
+
+option(WITH_CLANG_TIDY "Build with clang-tidy globaly enabled" OFF)
+add_feature_info([GLOBAL].clang-tidy WITH_CLANG_TIDY
+    "Build with clang-tidy globaly enabled"
+)
+
+if(WITH_INCLUDE_WHAT_YOU_USE)
+    find_program(iwyu_executable include-what-you-use REQUIRED)
+    set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE "${iwyu_executable}")
+endif()
 
 # Dependency Resolution -------------------------------------------------------
 # in normal case it should be find_package(platform_implementation REQUIRED)
