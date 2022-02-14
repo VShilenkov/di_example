@@ -2,6 +2,8 @@
 #include "CPlatformStorageDelegate.hpp"
 #include <iostream>
 
+#include "di_example_config.hpp"
+
 int main() {
 
   #if defined __clang__
@@ -10,6 +12,7 @@ int main() {
     std::cout << "Build with GCC" << std::endl;
   #endif 
 
+  std::cout << VERSION_STRING << ". Commit: " << VERSION_GIT_HASH << ((VERSION_GIT_DIRTY) ? "*" : "") << std::endl;
 
   IStorageService *storage = new CPlatformStorageDelegate();
 

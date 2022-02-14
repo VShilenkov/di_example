@@ -21,6 +21,7 @@ add_subdirectory(cmake) # support local includes
 
 include(ProjectOptions)
 include(FeatureSummary)
+include(GitHelpers)
 
 # Options ---------------------------------------------------------------------
 project_options(${PROJECT_NAME})
@@ -78,6 +79,20 @@ add_subdirectory(platform_consumer)
 
 # Target Definition ------------------------------------------------------------
 target_sources(${PROJECT_NAME} PRIVATE main.cpp)
+
+# Configuration
+directory_git_hash()
+directory_git_dirty()
+
+configure_file(di_example_config.hpp.in 
+               di_example_config.hpp
+               @ONLY
+)
+
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
 
 ## Dependency on a platform abstraction only in main
 ## consumer has dependency only on interface
