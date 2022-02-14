@@ -3,6 +3,14 @@
 #include <iostream>
 
 int main() {
+
+  #if defined __clang__
+    std::cout << "Build with clang" << std::endl;
+  #elif defined __GNUC__
+    std::cout << "Build with GCC" << std::endl;
+  #endif 
+
+
   IStorageService *storage = new CPlatformStorageDelegate();
 
   // DEPENDENCY INJECTED HERE!

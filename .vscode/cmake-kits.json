@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Clang.13.0.1.x86_64-pc-linux-gnu",
+      "compilers": {
+        "C": "/usr/bin/clang-13",
+        "CXX": "/usr/bin/clang++-13"
+      }
+    },
+    {
+      "name": "GCC.7.5.0.x86_64-linux-gnu",
+      "compilers": {
+        "C": "/usr/bin/x86_64-linux-gnu-gcc-7",
+        "CXX": "/usr/bin/x86_64-linux-gnu-g++-7"
+      }
+    }
+  ]
